@@ -20,7 +20,6 @@ const {
 export const near = new Near({
 	networkId,
 	nodeUrl,
-	walletUrl,
 	deps: {
 		keyStore: new keyStores.BrowserLocalStorageKeyStore()
 	},
@@ -46,12 +45,10 @@ export function getContract(account, methods = contractMethods) {
 	return new Contract(account, contractName, { ...methods });
 }
 
-export const getWallet = async () => {
+export const getWallet = () => {
 	const contractId = 'app-name.account-id.near';
 	const wallet = new WalletAccount(near);
-
 	// walletAccount instance gets access key for contractId
-	
 	const contractAccount = new Account(near.connection, contractName);
 	return { near, wallet, contractAccount };
 };
