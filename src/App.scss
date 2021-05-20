@@ -25,7 +25,13 @@ header {
     h4 {
         margin: 1rem 0rem;
     }
+    .page-controls {
+        display: flex;
+        justify-content: space-between;
+        margin: 1rem 0rem;
+    }
 }
+
 
 .removed {
   	display: none;

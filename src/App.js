@@ -10,11 +10,13 @@ import './App.scss';
 
 const PATH_SPLIT = '?c=';
 const SUB_SPLIT = '&t=';
+const numPerPage = 9;
 
 const App = () => {
 	const { state, dispatch, update } = useContext(appStore);
 	const { contracts, app: { loading, snack } } = state;
 
+	const [page, setPage] = useState(0);
 	const [owner, setOwner] = useState('');
 	const [path, setPath] = useState(window.location.href);
 	useHistory(() => {
@@ -89,17 +91,22 @@ const App = () => {
 		<header>
 			<h1>UHHM NFTs</h1>
 			<h4>A Love Letter to Hip Hop</h4>
+			{
+				contract &&
+				<div className="page-controls">
+					<div onClick={() => setPage(page - 1)}>{ page !== 0 ? 'Prev' : ''}</div>
+					<div onClick={() => setPage(page + 1)}>{ (page+1) * numPerPage <= contract.tokens.length ? 'Next' : ''}</div>
+				</div>
+			}
 		</header>
+
 
 		{
 			contract && <div className="contract">
 				
 				<div className="tokens">
 					{
-						!contract.tokens.length && <div className="cover" onClick={(e) => handleContract(e)}>You don't own any tokens here. Click left or right to check other NFTs.</div>
-					}
-					{
-						contract.tokens.map(({
+						contract.tokens.slice(page * numPerPage, (page+1) * numPerPage).map(({
 							displayTitle,
 							token_id,
 							displayFrag,
