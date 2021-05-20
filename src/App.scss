@@ -45,12 +45,28 @@ header {
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
   .page-controls {
     display: flex;
     align-items: center;
+    justify-content: center;
     justify-content: space-between;
     margin: 3rem 0rem 1rem;
     padding: 1rem;
+  }
+  .credit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans;
+    width: 100%;
+    text-align: center;
+    margin: 2rem 0;
+    opacity: 0.5;
+    svg {
+      margin-left: 0.5rem;
+    }
   }
 }
 
