@@ -2,7 +2,7 @@
 const nearAPI = require('near-api-js');
 const testUtils = require('./test-utils');
 const getConfig = require('../src/config');
-const {data} = require('../src/data');
+const {data} = require('../src/tokens');
 
 const { 
 	utils: { format: { parseNearAmount }},
@@ -16,6 +16,8 @@ const {
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
 
+const deployNum = 103;
+
 describe('deploy contract ' + contractName, () => {
 
 	const contract_royalty = 500;
@@ -27,7 +29,7 @@ describe('deploy contract ' + contractName, () => {
 
 	let alice, aliceId, bob, bobId;
 
-	const tokens = data.slice(0, 10).map(({ token_type, metadata }) => ({
+	const tokens = data.slice(0, deployNum).map(({ token_type, metadata }) => ({
 		token_type,
 		token_id: token_type + ':1',
 		metadata: {

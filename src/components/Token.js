@@ -57,7 +57,7 @@ export const Token = ({
 			<h3>Click to Close</h3>
 			{ token.displayVideo }
 			<div className="token-detail">
-				<div><a href={explorerUrl + '/accounts/' + contractId}>{token.token_id}</a></div>
+				<div><a href={explorerUrl + '/accounts/' + contractId}>{token.displayTitle}</a></div>
 				<div className="time">Minted {token.displayHowLongAgo} ago</div>
 			</div>
 		</div>

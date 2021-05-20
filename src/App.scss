@@ -11,8 +11,20 @@
 
 html, body {
     margin: 0;
-    font-family: 'Antonio', sans-serif;
+    font-family: 'Arvo', serif;
     font-size: 1rem;
+    letter-spacing: .1rem;
+}
+
+header {
+    letter-spacing: .3rem;
+    margin: 0rem 0.5rem;
+    h1 {
+        margin: 1rem 0rem;
+    }
+    h4 {
+        margin: 1rem 0rem;
+    }
 }
 
 .removed {
@@ -77,24 +89,17 @@ html, body {
 
 
 .tokens {
-    margin-top: 32px;
+    margin: 0rem 0.5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100vw;
+    width: calc(100vw - 1rem);
     > div {
         position: relative;
-        width: 100vw;
+        width: calc(100vw - 1rem);
         height: auto;
         padding-bottom: 4rem !important;
-        img, iframe, video {
-            margin-bottom: -3px;
-            width: 100%;
-            height: 100%;
-            border-left: 2px solid black;
-            border-right: 2px solid black;
-            object-fit: cover;
-        }
+        
         
     }
 }
@@ -134,12 +139,6 @@ html, body {
         background: white;
         position: relative;
         width: 100%;
-        img, iframe, video {
-            width: 100%;
-            margin-bottom: -3px;
-            border-left: 2px solid black;
-            border-right: 2px solid black;
-        }
     }
 }
 
@@ -160,26 +159,36 @@ html, body {
     }
 }
 
+img, iframe, video {
+    margin-bottom: -3px;
+    width: 100%;
+    height: 100%;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    box-shadow: 0 0.25rem 1rem #eee, 0 0 0.5rem #ddd, 0 0 0.25rem #ddd;
+    object-fit: cover;
+}
 
 @media (min-width: 992px) {
+    header {
+        margin: 0rem 2rem;
+    }
     .tokens > div {
-        width: calc(50vw - 2rem);
-        padding: 1rem;
-        border: 1px solid #eee;
+        width: calc(50vw - 3rem);
         margin: 1rem;
     }
     .token > div {
         width: 100%;
         text-align: center;
-        img, iframe, video {
-            max-width: 50vw;
-            margin: auto;
-        }
+    }
+    img, iframe, video {
+        max-width: 50vw;
+        margin: auto;
     }
 }
 @media (min-width: 1600px) {
     .tokens > div {
-        width: calc(33.3333vw - 2rem);
+        width: calc(33.3333vw - 3rem);
     }
 }
 

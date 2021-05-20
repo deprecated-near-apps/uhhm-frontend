@@ -6,8 +6,6 @@ import { useHistory } from './utils/history';
 
 import { Token } from './components/Token';
 
-import NearLogo from 'url:./img/near_icon.svg';
-
 import './App.scss';
 
 const PATH_SPLIT = '?c=';
@@ -78,9 +76,6 @@ const App = () => {
 
 	return <>
 		{
-			loading && <div className="loading"><img src={NearLogo} /></div>
-		}
-		{
 			tokenId &&
 			<Token {...{ dispatch, contracts, contractId, tokenId }} />
 		}
@@ -91,6 +86,11 @@ const App = () => {
 			</div>
 		}
 
+		<header>
+			<h1>UHHM NFTs</h1>
+			<h4>A Love Letter to Hip Hop</h4>
+		</header>
+
 		{
 			contract && <div className="contract">
 				
@@ -100,6 +100,7 @@ const App = () => {
 					}
 					{
 						contract.tokens.map(({
+							displayTitle,
 							token_id,
 							displayFrag,
 							displayHowLongAgo
@@ -107,7 +108,7 @@ const App = () => {
 							return <div key={token_id} onClick={() => history.pushState({}, '', PATH_SPLIT + contract.id + SUB_SPLIT + token_id)}>
 								{displayFrag}
 								<div className="token-detail">
-									<div>{token_id}</div>
+									<div>{displayTitle}</div>
 									<div className="time">Minted {displayHowLongAgo} ago</div>
 								</div>
 							</div>;
