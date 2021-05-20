@@ -3,6 +3,8 @@ import { howLongAgo } from './date';
 
 const GATEWAY_BASE = 'https://cloudflare-ipfs.com/ipfs/';
 const DWEB_BASE = 'http://dweb.link/ipfs/';
+const IPFS_BASE = 'https://ipfs.io/ipfs/';
+const NEAR_BASE = 'https://near.mypinata.cloud/ipfs/';
 const LOW_RES_GIF = '/low-res.gif';
 const VIDEO = '/1.m4v';
 
@@ -21,9 +23,12 @@ export const tagToFrag = (tag, src, ...args) => {
 				<div className="lds-loader"><div></div><div></div><div></div></div>
 				<video
 					onPlay={() => document.querySelector('.lds-loader').style.display = 'none'}
-					src={DWEB_BASE + src + VIDEO}
 					autoPlay={true} loop={true} preload="auto"
-				/>
+				>
+					<source src={DWEB_BASE + src + VIDEO} />
+					<source src={IPFS_BASE + src + VIDEO} />
+					<source src={NEAR_BASE + src + VIDEO} />
+				</video>
 			</div>;
 	}
 };
