@@ -19,7 +19,7 @@ export const tagToFrag = (tag, src, ...args) => {
 			src={GATEWAY_BASE + src + LOW_RES_GIF}
 			onError={(e) => resolveImageError(e.target, src, ...args)}
 		/>;
-		case 'video': return <div class="video-wrap">
+		case 'video': return <div className="video-wrap">
 				<div className="lds-loader"><div></div><div></div><div></div></div>
 				<video
 					onPlay={() => document.querySelector('.lds-loader').style.display = 'none'}

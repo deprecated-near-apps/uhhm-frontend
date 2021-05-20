@@ -17,6 +17,8 @@ const {
 	InMemorySigner,
 } = nearAPI;
 
+console.log(networkId, contractName)
+
 export const near = new Near({
 	networkId,
 	nodeUrl,

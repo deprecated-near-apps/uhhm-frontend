@@ -55,7 +55,7 @@ footer {
     margin: 3rem 0rem 1rem;
     padding: 1rem;
   }
-  .credit {
+  .credit a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -266,7 +266,7 @@ a:hover,
 a:visited,
 a:active {
   text-decoration: none;
-  color: rgb(32, 64, 255, 1);
+  color: white !important;
 }
 
 input,

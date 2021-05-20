@@ -1,4 +1,4 @@
-const contractName = 'dev-1621484321823-2217523';
+const contractName = 'uhhmnft.near';
 
 module.exports = function getConfig() {
 	let config = {
@@ -38,7 +38,6 @@ module.exports = function getConfig() {
 			nodeUrl: 'https://rpc.mainnet.near.org',
 			walletUrl: 'https://wallet.near.org',
 			helperUrl: 'https://helper.mainnet.near.org',
-			contractName: 'near',
 		};
 	}
 
