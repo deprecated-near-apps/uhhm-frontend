@@ -10,26 +10,63 @@
 
 html,
 body {
+  background: black;
+  color: white;
   margin: 0;
   font-family: "Arvo", serif;
   font-size: 1rem;
-  letter-spacing: 0.1rem;
 }
 
 header {
-  letter-spacing: 0.3rem;
-  margin: 0rem 0.5rem;
-  h1 {
-    margin: 1rem 0rem;
+  text-align: center;
+  margin: 2rem 0;
+
+  .heading {
+    margin: 1.5rem 0 2rem;
+  }
+  img {
+    width: 100px;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 0;
+  }
+  .heading-emphasized {
+    color: red;
+    font-weight: bold;
   }
   h4 {
-    margin: 1rem 0rem;
+    font-family: sans;
+    font-style: italic;
+    color: rgb(194, 194, 194);
+    font-weight: normal;
   }
+}
+
+footer {
   .page-controls {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin: 1rem 0rem;
+    margin: 3rem 0rem 1rem;
+    padding: 1rem;
   }
+}
+
+.fake-button {
+  background: rgba(white, 0.15);
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  margin: 0;
+  padding: 8px;
+  border-radius: 50px;
+  height: 75px;
+  width: 75px;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 60px;
 }
 
 .removed {
@@ -62,7 +99,6 @@ header {
 }
 
 .contract {
-  background: black;
   text-align: center;
   .contract-controls {
     z-index: 1500;
@@ -93,7 +129,7 @@ header {
 
 .tokens {
   display: grid;
-  grid-template-columns: 33.33% 33.33% 33.33%;
+  grid-template-columns: 100%;
   width: 100%;
   padding: 0 0.5rem;
 
@@ -132,6 +168,7 @@ header {
 }
 
 .token {
+  cursor: pointer;
   margin-bottom: 64px;
   position: fixed;
   top: 0;
@@ -150,12 +187,6 @@ header {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    > h3 {
-        color: white;
-      text-align: center;
-      margin: 0;
-      padding: 8px;
-    }
 
     img,
     iframe,
@@ -167,16 +198,16 @@ header {
 }
 
 .video-wrap {
-    position: relative;
-    > div {
-        position: absolute;
-        top: calc(50% - 40px); left: calc(50% - 40px);
-    }
+  position: relative;
+  > div {
+    position: absolute;
+    top: calc(50% - 40px);
+    left: calc(50% - 40px);
+  }
 }
 
 .token .token-detail {
-  height: 5.5rem;
-  padding: 6px 8px;
+  margin: 2rem 0 3rem;
   > div {
     font-size: 2rem;
   }
@@ -192,7 +223,16 @@ header {
   }
 }
 
+@media (min-width: 600px) {
+  .tokens {
+    grid-template-columns: 50% 50%;
+  }
+}
+
 @media (min-width: 900px) {
+  .tokens {
+    grid-template-columns: 33.33% 33.33% 33.33%;
+  }
   .token > div {
     width: 100%;
     text-align: center;
@@ -204,14 +244,6 @@ header {
     }
   }
 }
-
-
-
-
-
-
-
-
 
 a,
 a:hover,
@@ -235,39 +267,39 @@ button {
 }
 
 .lds-loader {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-loader div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #fff;
+  animation: lds-loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-loader div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-loader div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-loader div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-loader {
+  0% {
+    top: 8px;
+    height: 64px;
   }
-  .lds-loader div {
-    display: inline-block;
-    position: absolute;
-    left: 8px;
-    width: 16px;
-    background: #fff;
-    animation: lds-loader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  50%,
+  100% {
+    top: 24px;
+    height: 32px;
   }
-  .lds-loader div:nth-child(1) {
-    left: 8px;
-    animation-delay: -0.24s;
-  }
-  .lds-loader div:nth-child(2) {
-    left: 32px;
-    animation-delay: -0.12s;
-  }
-  .lds-loader div:nth-child(3) {
-    left: 56px;
-    animation-delay: 0;
-  }
-  @keyframes lds-loader {
-    0% {
-      top: 8px;
-      height: 64px;
-    }
-    50%, 100% {
-      top: 24px;
-      height: 32px;
-    }
-  }
-  
+}

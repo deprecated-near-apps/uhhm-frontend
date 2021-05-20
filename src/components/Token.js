@@ -12,7 +12,7 @@ export const Token = ({
 		document.body.style.overflow = 'hidden';
 		return () => document.body.style.overflow = 'scroll';
 	}, []);
-    
+
 	const handleShare = async (e, contractId, tokenId) => {
 		e.stopPropagation();
 		e.preventDefault();
@@ -59,7 +59,7 @@ export const Token = ({
 				<div><a href={explorerUrl + '/accounts/' + contractId}>{token.displayTitle}</a></div>
 				<div className="time">Minted {token.displayHowLongAgo} ago</div>
 			</div>
-			<h3>Click to Close</h3>
+			<h3 className="fake-button">Close</h3>
 		</div>
 	</div>;
 };

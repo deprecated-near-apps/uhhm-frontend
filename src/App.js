@@ -5,6 +5,7 @@ import { getForOwner, getAll } from './state/near';
 import { useHistory } from './utils/history';
 
 import { Token } from './components/Token';
+import Logo from 'url:./img/logo.png';
 
 import './App.scss';
 
@@ -89,18 +90,13 @@ const App = () => {
 		}
 
 		<header>
-			<h1>UHHM NFTs</h1>
-			<h4>A Love Letter to Hip Hop</h4>
-			{
-				contract &&
-				<div className="page-controls">
-					<div style={{visibility: page !== 0 ? 'visible' : 'hidden' }} onClick={() => {if (page !== 0) setPage(page - 1)}}>Prev</div>
-					<div>{ page+1 } / {Math.floor(contract.tokens.length / numPerPage) + 1}</div>
-					<div style={{visibility: page+1 < Math.floor(contract.tokens.length / numPerPage) + 1 ? 'visible' : 'hidden' }} onClick={() => {if (page+1 < Math.floor(contract.tokens.length / numPerPage) + 1) setPage(page + 1)}}>Next</div>
-				</div>
-			}
+      <img src={Logo} alt="UHHM Logo" />
+      <div className="heading">
+        <h2>A Love Letter to</h2>
+        <h2 className="heading-emphasized">Hip Hop</h2>
+      </div>
+			<h4>An NFT Collection by UHHM</h4>
 		</header>
-
 
 		{
 			contract && <div className="contract">
@@ -128,6 +124,17 @@ const App = () => {
 				</div>
 			</div>
 		}
+
+    <footer>
+      {
+				contract &&
+				<div className="page-controls">
+					<div className="fake-button" style={{visibility: page !== 0 ? 'visible' : 'hidden' }} onClick={() => {if (page !== 0) setPage(page - 1)}}>Prev</div>
+					<div>{ page+1 } / {Math.floor(contract.tokens.length / numPerPage) + 1}</div>
+					<div className="fake-button" style={{visibility: page+1 < Math.floor(contract.tokens.length / numPerPage) + 1 ? 'visible' : 'hidden' }} onClick={() => {if (page+1 < Math.floor(contract.tokens.length / numPerPage) + 1) setPage(page + 1)}}>Next</div>
+				</div>
+			}
+    </footer>
 	</>;
 };
 
