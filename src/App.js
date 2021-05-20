@@ -129,11 +129,13 @@ const App = () => {
       {
 				contract &&
 				<div className="page-controls">
-					<div className="fake-button" style={{visibility: page !== 0 ? 'visible' : 'hidden' }} onClick={() => {if (page !== 0) setPage(page - 1)}}>Prev</div>
+					<div className="fake-button" style={{visibility: page !== 0 ? 'visible' : 'hidden' }} onClick={() => {window.scrollTo(0, 0); if (page !== 0) setPage(page - 1)}}>Prev</div>
 					<div>{ page+1 } / {Math.floor(contract.tokens.length / numPerPage) + 1}</div>
-					<div className="fake-button" style={{visibility: page+1 < Math.floor(contract.tokens.length / numPerPage) + 1 ? 'visible' : 'hidden' }} onClick={() => {if (page+1 < Math.floor(contract.tokens.length / numPerPage) + 1) setPage(page + 1)}}>Next</div>
+					<div className="fake-button" style={{visibility: page+1 < Math.floor(contract.tokens.length / numPerPage) + 1 ? 'visible' : 'hidden' }} onClick={() => {window.scrollTo(0, 0); if (page+1 < Math.floor(contract.tokens.length / numPerPage) + 1) setPage(page + 1)}}>Next</div>
 				</div>
 			}
+
+			<div>built on NEAR</div>
     </footer>
 	</>;
 };

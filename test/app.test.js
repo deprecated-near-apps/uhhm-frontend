@@ -20,7 +20,7 @@ const deployNum = 103;
 
 describe('deploy contract ' + contractName, () => {
 
-	const contract_royalty = 500;
+	const contract_royalty = 0;
 
 	/// contractAccount.accountId is the NFT contract and contractAccount is the owner
 	/// see initContract in ./test-utils.js for details
@@ -40,6 +40,28 @@ describe('deploy contract ' + contractName, () => {
 			[contractId]: 500
 		}
 	}));
+
+
+const tokens = data.map(({ token_type, metadata }) => ({
+	token_type,
+	token_id: token_type + ':1',
+	metadata: {
+		...metadata,
+		issued_at: Date.now().toString(),
+	},
+	perpetual_royalties: {
+		'escrow-42.uhhm.near': 1000,
+		'uhhm.near': 100,
+		'andreleroydavis.near': 200,
+		'edyoung.near': 200,
+	}
+}));
+
+
+
+
+
+
 
 	/// most of the following code in beforeAll can be used for deploying and initializing contracts
 	/// skip all tests if you want to deploy to production or testnet without any NFTs
