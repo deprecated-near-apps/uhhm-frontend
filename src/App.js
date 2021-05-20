@@ -134,8 +134,6 @@ const App = () => {
 					<div className="fake-button" style={{visibility: page+1 < Math.floor(contract.tokens.length / numPerPage) + 1 ? 'visible' : 'hidden' }} onClick={() => {window.scrollTo(0, 0); if (page+1 < Math.floor(contract.tokens.length / numPerPage) + 1) setPage(page + 1)}}>Next</div>
 				</div>
 			}
-
-			<div>built on NEAR</div>
     </footer>
 	</>;
 };
