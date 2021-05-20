@@ -17,10 +17,14 @@ export const tagToFrag = (tag, src, ...args) => {
 			src={GATEWAY_BASE + src + LOW_RES_GIF}
 			onError={(e) => resolveImageError(e.target, src, ...args)}
 		/>;
-		case 'video': return <video
-			src={DWEB_BASE + src + VIDEO}
-			autoPlay={true} loop={true} preload="auto"
-		/>;
+		case 'video': return <div class="video-wrap">
+				<div className="lds-loader"><div></div><div></div><div></div></div>
+				<video
+					onPlay={() => document.querySelector('.lds-loader').style.display = 'none'}
+					src={DWEB_BASE + src + VIDEO}
+					autoPlay={true} loop={true} preload="auto"
+				/>
+			</div>;
 	}
 };
 

@@ -54,12 +54,12 @@ export const Token = ({
 
 	return <div className="token" onClick={() => history.pushState({}, '', window.location.pathname + '?c=' + contractId)}>
 		<div>
-			<h3>Click to Close</h3>
 			{ token.displayVideo }
 			<div className="token-detail">
 				<div><a href={explorerUrl + '/accounts/' + contractId}>{token.displayTitle}</a></div>
 				<div className="time">Minted {token.displayHowLongAgo} ago</div>
 			</div>
+			<h3>Click to Close</h3>
 		</div>
 	</div>;
 };

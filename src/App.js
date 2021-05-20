@@ -94,8 +94,9 @@ const App = () => {
 			{
 				contract &&
 				<div className="page-controls">
-					<div onClick={() => setPage(page - 1)}>{ page !== 0 ? 'Prev' : ''}</div>
-					<div onClick={() => setPage(page + 1)}>{ (page+1) * numPerPage <= contract.tokens.length ? 'Next' : ''}</div>
+					<div style={{visibility: page !== 0 ? 'visible' : 'hidden' }} onClick={() => {if (page !== 0) setPage(page - 1)}}>Prev</div>
+					<div>{ page+1 } / {Math.floor(contract.tokens.length / numPerPage) + 1}</div>
+					<div style={{visibility: page+1 < Math.floor(contract.tokens.length / numPerPage) + 1 ? 'visible' : 'hidden' }} onClick={() => {if (page+1 < Math.floor(contract.tokens.length / numPerPage) + 1) setPage(page + 1)}}>Next</div>
 				</div>
 			}
 		</header>
