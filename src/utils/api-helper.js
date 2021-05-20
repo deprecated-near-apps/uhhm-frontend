@@ -2,6 +2,8 @@
 
 // https://github.com/near/near-api-helper
 
+import { networkId } from "./near-utils";
+
 // consts
 // const domain = 'http://127.0.0.1:8787';
 const domain = 'https://helper.nearapi.org';
@@ -10,7 +12,8 @@ const testNFTPath = domainAndPath + 'dev-1618440176640-7650905/nft_token/';
 const batchPath = domain + '/v1/batch/';
 
 const headers = new Headers({
-	'max-age': '300'
+	'max-age': '300',
+	'near-network': networkId,
 });
 
 export const getTokens = async (contract, totalSupply) => {
