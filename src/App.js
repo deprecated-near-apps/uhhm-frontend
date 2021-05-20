@@ -95,7 +95,7 @@ const App = () => {
         <h2>A Love Letter to</h2>
         <h2 className="heading-emphasized">Hip Hop</h2>
       </div>
-			<h4>An NFT Collection by UHHM</h4>
+			<h4>Hip Hop Heads First Edition - #1 of 47 (limited for each series)</h4>
 		</header>
 
 		{

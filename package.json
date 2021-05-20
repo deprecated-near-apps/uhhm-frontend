@@ -37,6 +37,7 @@
         "prestart": "rm -rf ./parcel-cache",
         "start": "cross-env REACT_APP_ENV=dev parcel src/index.html --open",
         "start:deploy": "yarn patch:deploy-config && cross-env REACT_APP_ENV=prod REACT_APP_API_HELPER=true parcel src/index.html --open",
+        "start:testnet": "yarn patch:deploy-config-testnet && cross-env REACT_APP_ENV=dev REACT_APP_API_HELPER=true parcel src/index.html --open",
         "fix": "eslint src/ test/ --fix",
         "test:unit": "(cd contracts && cargo test -- --nocapture --color always)",
         "prebuild": "rm -rf ./dist",
@@ -44,7 +45,7 @@
         "patch:deploy-config-testnet": "node ./utils/patch-config-deploy-testnet.js",
         "build": "parcel build src/index.html --no-source-maps --public-url https://uhhmnft.org/",
         "deploy": "yarn patch:deploy-config && cross-env REACT_APP_ENV=prod REACT_APP_API_HELPER=true yarn build && yarn static && gh-pages -d dist",
-        "deploy:testnet": "yarn patch:deploy-config && cross-env REACT_APP_ENV=dev REACT_APP_API_HELPER=true yarn build && yarn static && gh-pages -d dist",
+        "deploy:testnet": "yarn patch:deploy-config-testnet && cross-env REACT_APP_ENV=dev REACT_APP_API_HELPER=true yarn build && yarn static && gh-pages -d dist",
         "static": "rm -rf dist/CNAME && cp src/static/CNAME dist/CNAME"
     }
 }
