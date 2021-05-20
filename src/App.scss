@@ -37,6 +37,7 @@ header {
     font-weight: bold;
   }
   h4 {
+    margin: 0 1rem;
     font-family: sans;
     font-style: italic;
     color: rgb(194, 194, 194);
@@ -223,7 +224,7 @@ footer {
 }
 
 .token .token-detail {
-  margin: 2rem 0 3rem;
+  margin: 1rem 0 3rem 2rem;
   > div {
     font-size: 2rem;
   }
