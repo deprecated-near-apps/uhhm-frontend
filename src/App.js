@@ -103,7 +103,7 @@ const App = () => {
 
 		{
 			contract && <div className="contract">
-				
+
 				<div className="tokens">
 					{
 						contract.tokens.slice(page * numPerPage, (page+1) * numPerPage).map(({
@@ -113,7 +113,10 @@ const App = () => {
 							displayHowLongAgo
 						}) => {
 							return <div key={token_id} onClick={() => history.pushState({}, '', PATH_SPLIT + contract.id + SUB_SPLIT + token_id)}>
-								{displayFrag}
+                <div className="img-container">
+								  {displayFrag}
+                </div>
+
 								<div className="token-detail">
 									<div>{displayTitle}</div>
 									<div className="time">Minted {displayHowLongAgo} ago</div>
