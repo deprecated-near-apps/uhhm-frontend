@@ -26,7 +26,9 @@
         "sass": "^1.32.8"
     },
     "browserslist": [
-        "last 2 Chrome versions"
+        "defaults",
+        "not IE 11",
+        "maintained node versions"
     ],
     "scripts": {
         "test:deploy": "yarn dev:deploy && yarn test",
@@ -46,6 +48,7 @@
         "build": "parcel build src/index.html --no-source-maps --public-url https://uhhmnft.org/",
         "deploy": "yarn patch:deploy-config && cross-env REACT_APP_ENV=prod REACT_APP_API_HELPER=true yarn build && yarn static && gh-pages -d dist",
         "deploy:testnet": "yarn patch:deploy-config-testnet && cross-env REACT_APP_ENV=dev REACT_APP_API_HELPER=true yarn build && yarn static && gh-pages -d dist",
-        "static": "rm -rf dist/CNAME && cp src/static/CNAME dist/CNAME"
+        "static": "rm -rf dist/CNAME && cp src/static/CNAME dist/CNAME",
+        "build:deploy": "yarn patch:deploy-config && cross-env REACT_APP_ENV=prod REACT_APP_API_HELPER=true parcel build src/index.html --no-source-maps && yarn static"
     }
 }

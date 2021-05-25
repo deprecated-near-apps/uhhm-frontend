@@ -146,6 +146,13 @@ impl Contract {
         }
     }
 
+    pub fn set_token_royalty(&mut self, token_id: TokenId, royalty: HashMap<AccountId, u32>) {
+        self.assert_owner();
+        let mut token = self.tokens_by_id.get(&token_id).expect("No token");
+        token.royalty = royalty;
+        self.tokens_by_id.insert(&token_id, &token);
+    }
+
     /// CUSTOM - views
 
     pub fn get_contract_royalty(&self) -> u32 {

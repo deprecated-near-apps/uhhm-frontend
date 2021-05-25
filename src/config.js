@@ -35,6 +35,7 @@ module.exports = function getConfig() {
 		config = {
 			...config,
 			networkId: 'mainnet',
+			explorerUrl: 'https://explorer.near.org',
 			nodeUrl: 'https://rpc.mainnet.near.org',
 			walletUrl: 'https://wallet.near.org',
 			helperUrl: 'https://helper.mainnet.near.org',
