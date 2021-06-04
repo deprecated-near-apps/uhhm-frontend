@@ -71,6 +71,21 @@ footer {
   }
 }
 
+section.page {
+  padding: 16px;
+  .button {
+    margin-top: 16px;
+    color: white;
+    text-decoration: underline;
+  }
+}
+
+header .button {
+  margin-top: 16px;
+  color: white;
+  text-decoration: underline;
+}
+
 .fake-button {
   background: rgba(white, 0.15);
   color: white;
