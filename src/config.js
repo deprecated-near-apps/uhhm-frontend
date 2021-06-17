@@ -1,4 +1,4 @@
-const contractName = 'dev-1621484321823-2217523';
+const contractName = 'uhhmnft.near';
 
 module.exports = function getConfig() {
 	let config = {
