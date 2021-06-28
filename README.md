@@ -1,54 +1,12 @@
-# NFT Market Reference Implementation
+# UHHM Market Frontend
 
-A PoC backbone for NFT Marketplaces on NEAR Protocol.
+This is a repo for the website  [uhhmnft.org](https://uhhmnft.org/).
 
-[Reference](https://nomicon.io/Standards/NonFungibleToken/README.html)
+## Quickstart
 
-## Progress:
-- [x] basic purchase of NFT with FT
-- [x] demo pay out royalties (FTs and NEAR)
-- [x] test and determine standards for markets (best practice?) to buy/sell NFTs (finish standard) with FTs (already standard)
-- [x] demo some basic auction types, secondary markets and 
-- [x] frontend example
-- [x] first pass / internal audit
-- [ ] connect with bridged tokens e.g. buy and sell with wETH/nDAI (or whatever we call these)
-
-## Notes:
-
-High level diagram of NFT sale on Market using Fungible Token:
-![image](https://user-images.githubusercontent.com/321340/113903355-bea71e80-9785-11eb-8ab3-9c2f0d23466f.png)
-
-Remove the FT steps for NEAR transfers (but nft_transfer_payout and resolve_purchase still the same).
-
-Differences from `nft-simple` NFT standard reference implementation:
-- anyone can mint an NFT
-- Optional token_type
-- capped supply by token_type
-- lock transfers by token_token
-- enumerable.rs
-
-## Working
-
-**Frontend App Demo: `/test/app.test.js/`**
-- install, deploy, test `yarn && yarn test:deploy`
-- run app - `yarn start`
-
-**App Tests: `/test/app.test.js/`**
-- install, deploy, test `yarn && yarn test:deploy`
-- if you update contracts - `yarn test:deploy`
-- if you update tests only - `yarn test`
-
-# NFT Specific Notes
-
-Associated Video Demos (most recent at top)
-
-[![NEAR Protocol - Demo NFT Marketplace Walkthough](https://img.youtube.com/vi/AevmMAtkIr4/0.jpg)](https://www.youtube.com/watch?v=AevmMAtkIr4)
-
-[![Live App Review 19 - NFT Marketplace with Fungible Token Transfers and Royalty Distribution](https://img.youtube.com/vi/sGTC3rs8OJQ/0.jpg)](https://youtu.be/sGTC3rs8OJQ)
-
-Some additional ideas around user onboarding:
-
-[![NEAR Protocol - NFT Launcher & Easy User Onboarding Demo - Hackathon Starter Kit!](https://img.youtube.com/vi/59Lzt1PFF6I/0.jpg)](https://www.youtube.com/watch?v=59Lzt1PFF6I)
+- `yarn`
+- `yarn test:deploy` will deploy a testnet version of the site with some tokens minted
+- `yarn start` will start the frontend react app
 
 # Detailed Installation / Quickstart
 

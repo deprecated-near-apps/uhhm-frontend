@@ -14,9 +14,9 @@ const {
 	GAS
 } = getConfig();
 
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
 
-const deployNum = 103;
+const deployNum = 9;
 
 describe('deploy contract ' + contractName, () => {
 
@@ -29,7 +29,7 @@ describe('deploy contract ' + contractName, () => {
 
 	let alice, aliceId, bob, bobId;
 
-	const tokens = data.slice(0, deployNum).map(({ token_type, metadata }) => ({
+	const tokens = data.map(({ token_type, metadata }) => ({
 		token_type,
 		token_id: token_type + ':1',
 		metadata: {
@@ -37,34 +37,14 @@ describe('deploy contract ' + contractName, () => {
 			issued_at: Date.now().toString(),
 		},
 		perpetual_royalties: {
-			[contractId]: 500
+			'escrow-42.uhhm.near': 1000,
+			'uhhm.near': 100,
+			'andreleroydavis.near': 200,
+			'edyoung.near': 200,
 		}
 	}));
 
 
-const tokens = data.map(({ token_type, metadata }) => ({
-	token_type,
-	token_id: token_type + ':1',
-	metadata: {
-		...metadata,
-		issued_at: Date.now().toString(),
-	},
-	perpetual_royalties: {
-		'escrow-42.uhhm.near': 1000,
-		'uhhm.near': 100,
-		'andreleroydavis.near': 200,
-		'edyoung.near': 200,
-	}
-}));
-
-
-
-
-
-
-
-	/// most of the following code in beforeAll can be used for deploying and initializing contracts
-	/// skip all tests if you want to deploy to production or testnet without any NFTs
 	beforeAll(async () => {
 	    await initContract();
 
@@ -102,7 +82,7 @@ const tokens = data.map(({ token_type, metadata }) => ({
 
 	test('NFT contract owner mints 5 nfts (of type: 3,2)', async () => {
 
-		for (let i = 0; i < tokens.length; i++) {
+		for (let i = 0; i < deployNum; i++) {
 			await contractAccount.functionCall({
 				contractId,
 				methodName: 'nft_mint',
